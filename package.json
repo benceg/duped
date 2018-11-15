@@ -1,0 +1,26 @@
+{
+  "name": "duped",
+  "version": "1.0.0",
+  "description": "A showcase of different ways to pick a unique list of duplicates from an array",
+  "main": "lib/index.js",
+  "repository": "https://github.com/benceg/duped.git",
+  "author": "Ben Ceglowski <ben@craftingtheinternet.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --outDir ./lib",
+    "pretest": "npm run build",
+    "test": "node ./node_modules/tape/bin/tape ./lib/**/*.test.js"
+  },
+  "dependencies": {
+    "tape": "^4.9.1",
+    "benchmark": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.8",
+    "@types/tape": "^4.2.32",
+    "prettier": "^1.15.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "typescript": "^3.1.6"
+  }
+}
