@@ -1,2 +1,3 @@
-# duped
-Presents a unique list of duplicates in an array
+# Duped. ¯\\_(ツ)_/¯
+
+A showcase of different ways to pick a **unique** list of **duplicates** from an array.
