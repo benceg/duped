@@ -1,4 +1,4 @@
-import { TypedArray, TypedArrayConstructor } from "../../types/typedArray";
+import { TypedArray, TypedArrayConstructor } from '../../types/typedArray';
 
 export type TypedAccumulatorTuple = [TypedArray, number[]];
 
@@ -14,6 +14,9 @@ const reduceTyped = (arr: TypedArray): number[] => {
   // types of our arrays. The final result will always
   // be of flexible size as it represents an unknown quantity.
   const initialiser: TypedAccumulatorTuple = [tempArray, []];
+  // The number equivalent to the length of the array
+  // is illegal, so let's use it.
+  const illegal = arr.length;
   // Reduce over the array, using index inversion
   // to check to see whether an item has already
   // been found as a duplicate.
@@ -27,7 +30,7 @@ const reduceTyped = (arr: TypedArray): number[] => {
       // this condition will never reoccur.
       if (accumulator[0][currentValue] === 1) {
         accumulator[1].push(currentValue);
-        accumulator[0][currentValue] = 0;
+        accumulator[0][currentValue] = illegal;
         return accumulator;
       }
       // If the above turns out not to be the case,
@@ -35,7 +38,9 @@ const reduceTyped = (arr: TypedArray): number[] => {
       // corresponds with the current value to 1, so
       // that it can be caught by the trap we've laid
       // for it above.
-      accumulator[0][currentValue] = 1;
+      if (accumulator[0][currentValue] !== illegal) {
+        accumulator[0][currentValue] = 1;
+      }
       return accumulator;
     },
     initialiser

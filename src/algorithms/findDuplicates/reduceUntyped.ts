@@ -1,4 +1,4 @@
-import { TypedArray } from "../../types/typedArray";
+import { TypedArray } from '../../types/typedArray';
 
 export type UntypedAccumulatorTuple = [number[], number[]];
 
@@ -7,20 +7,20 @@ const reduceUntyped = (arr: TypedArray): number[] => {
   // dynamic arrays, which will expand based on the values
   // of their inputs.
   const initialiser: UntypedAccumulatorTuple = [[], []];
+  // The number equivalent to the length of the array
+  // is illegal, so let's use it.
+  const illegal = arr.length;
   // Check out reduceTyped.ts for behavioural commentary.
   return (arr as number[]).reduce(
     (accumulator: UntypedAccumulatorTuple, currentValue: number) => {
       if (accumulator[0][currentValue] === 1) {
         accumulator[1].push(currentValue);
-        accumulator[0][currentValue] = 0;
+        accumulator[0][currentValue] = illegal;
         return accumulator;
       }
-      // If the above turns out not to be the case,
-      // we set the index of the temporary array that
-      // corresponds with the current value to 1, so
-      // that it can be caught by the trap we've laid
-      // for it above.
-      accumulator[0][currentValue] = 1;
+      if (accumulator[0][currentValue] !== illegal) {
+        accumulator[0][currentValue] = 1;
+      }
       return accumulator;
     },
     initialiser
