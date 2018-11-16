@@ -16,7 +16,7 @@ A showcase of a few different ways to pick a **unique** list of **duplicates** f
 
 4. They're fully static typed. Using them in a TypeScript codebase should be a no-brainer.
 
-5. They're inexhaustive, mostly because I made them up. There are many solutions to this problem out there, many of which I've already seen or used. There's no point in rehashing something someone's already done. These provide creative solutions to a problem which (hopefully).
+5. They're inexhaustive, mostly because I made them up. There are many solutions to this problem out there, many of which I've already seen or used. There's no point in rehashing something someone's already done. These provide creative solutions to a problem long cogitated and considered.
 
 6. They don't have any external dependencies. If these were NPM modules, they could be installed & leveraged rather trivially, without bloating a codebase.
 
