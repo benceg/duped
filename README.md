@@ -44,6 +44,8 @@ To my surprise, I learned a fair few things while building these out.
 
 3. Had I the time, I'm sure I'd have come up with more solutions that eke JavaScript's performance out on a pico-optimisation scale. Alas, I have food to put on the table.
 
+4. For massive workloads, it's possible to split the arrays up and perform comparisons on progressively halved data sets, concurrently. Workers could be used, but it's a pity that SharedArrayBuffer was shut down, as it would have potentially proven an excellent answer to JavaScript's rather inelegant interprocess messaging.
+
 ## Do It Yourself
 
 1. Clone the repo.
